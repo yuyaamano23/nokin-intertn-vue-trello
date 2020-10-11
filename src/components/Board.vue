@@ -8,3 +8,7 @@
   </div>
   <!-- ここまで追加 -->
 </template>
+
+<script>
+export default {};
+</script>
