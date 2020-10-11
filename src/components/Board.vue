@@ -1,14 +1,23 @@
 <template>
-  <!-- ここから追加 -->
   <div>
     <header>my Trello</header>
     <main>
       <p class="info-line">All: 0 tasks</p>
+      <!-- ★ここに追記 -->
+      <list-add />
     </main>
   </div>
-  <!-- ここまで追加 -->
 </template>
 
 <script>
-export default {};
+// ★ここに追記
+import ListAdd from "./ListAdd.vue";
+
+export default {
+  // ★ここから追記
+  components: {
+    ListAdd,
+  },
+  // ★ここまで追記
+};
 </script>
