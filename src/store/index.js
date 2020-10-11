@@ -5,9 +5,7 @@ Vue.use(Vuex);
 
 const savedLists = localStorage.getItem("trello-lists"); // ★①追加
 const store = new Vuex.Store({
-  // ★②編集
   state: {
-    // ★ここから③編集
     lists: savedLists
       ? JSON.parse(savedLists)
       : [
@@ -24,7 +22,6 @@ const store = new Vuex.Store({
             cards: [],
           },
         ],
-    // ★ここまで③編集
   },
   mutations: {
     addlist(state, payload) {
@@ -39,10 +36,8 @@ const store = new Vuex.Store({
   getters: {},
 });
 
-// ★ここから追記
 store.subscribe((mutation, state) => {
   localStorage.setItem("trello-lists", JSON.stringify(state.lists));
 });
 
 export default store;
-// ★ここまで追記

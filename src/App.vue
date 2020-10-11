@@ -8,7 +8,7 @@
 <script>
 // ★インポート文を追加
 import Board from "./components/Board.vue";
-import "./assets/css/styles.css"; // ★追記
+import "./assets/css/styles.css";
 
 export default {
   name: "app",
