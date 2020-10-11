@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-const savedLists = localStorage.getItem("trello-lists"); // ★①追加
+const savedLists = localStorage.getItem("trello-lists");
 const store = new Vuex.Store({
   state: {
     lists: savedLists
