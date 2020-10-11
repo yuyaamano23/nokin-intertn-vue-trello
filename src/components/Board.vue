@@ -1,5 +1,5 @@
 <template>
-  　<!-- ここから追加 -->
+  <!-- ここから追加 -->
   <div>
     <header>my Trello</header>
     <main>
