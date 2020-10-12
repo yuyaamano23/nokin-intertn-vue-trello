@@ -1,10 +1,12 @@
 <template>
-  <form class="addcard" @submit.prevent="addCardToList">
+  <form :class="classList" @submit.prevent="addCardToList">
     <input
-      v-model="body"
       type="text"
       class="text-input"
+      v-model="body"
       placeholder="Add new card"
+      @focusin="startEditing"
+      @focusout="finishEditing"
     />
     <button type="submit" class="add-button">Add</button>
   </form>
@@ -21,9 +23,25 @@ export default {
   data: function () {
     return {
       body: "",
+      isEditing: false,
     };
   },
+  computed: {
+    classList() {
+      const classList = ["addcard"];
+      if (this.isEditing) {
+        classList.push("active");
+      }
+      return classList;
+    },
+  },
   methods: {
+    startEditing: function () {
+      this.isEditing = true;
+    },
+    finishEditing: function () {
+      this.isEditing = false;
+    },
     addCardToList: function () {
       this.$store.dispatch("addCardToList", {
         body: this.body,
