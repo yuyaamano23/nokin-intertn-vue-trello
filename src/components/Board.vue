@@ -3,7 +3,7 @@
     <header>my Trello</header>
     <main>
       <p class="info-line">All: {{ totalCardCount }} tasks</p>
-      <draggable class="list-index">
+      <draggable :list="lists" @end="movingList" class="list-index">
         <list
           v-for="(item, index) in lists"
           :key="item.id"
@@ -38,6 +38,9 @@ export default {
   },
   methods: {
     movingCard: function() {
+      this.$store.dispatch("updateList", { lists: this.lists });
+    },
+    movingList: function() {
       this.$store.dispatch("updateList", { lists: this.lists });
     },
   },
